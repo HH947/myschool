@@ -11,7 +11,7 @@ export default function GuestbookPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // 방명록 목록 불러오기 (서버 메모리에서 조회)
+  // 방명록 목록 불러오기 (서버 API에서 조회)
   const fetchEntries = async () => {
     try {
       const res = await fetch("/api/guestbook", { cache: "no-store" });
@@ -27,7 +27,29 @@ export default function GuestbookPage() {
   };
 
   useEffect(() => {
-    fetchEntries();
+    let ignore = false;
+    const loadInitialEntries = async () => {
+      try {
+        const res = await fetch("/api/guestbook", { cache: "no-store" });
+        if (res.ok && !ignore) {
+          const data: GuestbookEntry[] = await res.json();
+          setEntries(data);
+        }
+      } catch {
+        if (!ignore) {
+          setErrorMessage("방명록을 불러오는 데 실패했습니다.");
+        }
+      } finally {
+        if (!ignore) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    loadInitialEntries();
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   // 방명록 작성 제출
