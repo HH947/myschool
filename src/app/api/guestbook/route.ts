@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 export interface GuestbookEntry {
   id: string;
@@ -7,36 +8,56 @@ export interface GuestbookEntry {
   createdAt: string;
 }
 
-// Next.js 개발 서버 핫 리로딩 및 요청 간 메모리 유지를 위한 globalThis 패턴
-declare global {
-  // eslint-disable-next-line no-var
-  var __GUESTBOOK_ENTRIES__: GuestbookEntry[] | undefined;
+interface DbGuestbookRow {
+  id: string;
+  nickname: string;
+  message: string;
+  created_at: string;
 }
 
-if (!globalThis.__GUESTBOOK_ENTRIES__) {
-  globalThis.__GUESTBOOK_ENTRIES__ = [
-    {
-      id: "entry-1",
-      nickname: "샬자 가족",
-      message: "이왕이면 샬자! 스스로 선택하고 책임지는 멋진 배움을 늘 응원합니다 🌱",
-      createdAt: "2026-11-11",
-    },
-    {
-      id: "entry-2",
-      nickname: "따뜻한 이웃",
-      message: "마을과 함께 호흡하며 앎과 삶이 일치하는 샬롬자유학교, 참 따뜻합니다 🧡",
-      createdAt: "2026-11-11",
-    },
-  ];
+function mapRowToEntry(row: DbGuestbookRow): GuestbookEntry {
+  const date = new Date(row.created_at);
+  const formattedDate = `${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+
+  return {
+    id: row.id,
+    nickname: row.nickname,
+    message: row.message,
+    createdAt: formattedDate,
+  };
 }
 
 export async function GET() {
-  const entries = globalThis.__GUESTBOOK_ENTRIES__ || [];
-  return NextResponse.json(entries, {
-    headers: {
-      "Cache-Control": "no-store, max-age=0",
-    },
-  });
+  try {
+    const { data, error } = await supabase
+      .from("guestbook")
+      .select("id, nickname, message, created_at")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.error("Supabase GET error:", error);
+      return NextResponse.json(
+        { error: "방명록을 불러오는 중 오류가 발생했습니다." },
+        { status: 500 }
+      );
+    }
+
+    const entries: GuestbookEntry[] = (data || []).map(mapRowToEntry);
+
+    return NextResponse.json(entries, {
+      headers: {
+        "Cache-Control": "no-store, max-age=0",
+      },
+    });
+  } catch (err) {
+    console.error("Unexpected GET error:", err);
+    return NextResponse.json(
+      { error: "방명록을 불러오는 중 오류가 발생했습니다." },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(request: Request) {
@@ -66,27 +87,37 @@ export async function POST(request: Request) {
       );
     }
 
-    const now = new Date();
-    const formattedDate = `${now.getFullYear()}-${String(
-      now.getMonth() + 1
-    ).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")}`;
+    // Supabase DB에 삽입
+    const { error: insertError } = await supabase
+      .from("guestbook")
+      .insert([{ nickname, message }]);
 
-    const newEntry: GuestbookEntry = {
-      id: `entry-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-      nickname,
-      message,
-      createdAt: formattedDate,
-    };
-
-    if (!globalThis.__GUESTBOOK_ENTRIES__) {
-      globalThis.__GUESTBOOK_ENTRIES__ = [];
+    if (insertError) {
+      console.error("Supabase INSERT error:", insertError);
+      return NextResponse.json(
+        { error: "방명록 등록 중 오류가 발생했습니다." },
+        { status: 500 }
+      );
     }
 
-    // 최신 글이 맨 위에 오도록 unshift
-    globalThis.__GUESTBOOK_ENTRIES__.unshift(newEntry);
+    // 최신 목록 조회 후 반환
+    const { data, error: selectError } = await supabase
+      .from("guestbook")
+      .select("id, nickname, message, created_at")
+      .order("created_at", { ascending: false });
 
-    return NextResponse.json(globalThis.__GUESTBOOK_ENTRIES__, { status: 201 });
-  } catch {
+    if (selectError) {
+      console.error("Supabase SELECT after insert error:", selectError);
+      return NextResponse.json(
+        { error: "방명록 목록을 새로고침하는 중 오류가 발생했습니다." },
+        { status: 500 }
+      );
+    }
+
+    const entries: GuestbookEntry[] = (data || []).map(mapRowToEntry);
+    return NextResponse.json(entries, { status: 201 });
+  } catch (err) {
+    console.error("Unexpected POST error:", err);
     return NextResponse.json(
       { error: "방명록 등록 중 오류가 발생했습니다." },
       { status: 500 }
