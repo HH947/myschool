@@ -1,10 +1,11 @@
 import Link from "next/link";
+import CurriculumDiagram from "@/components/CurriculumDiagram";
 
 export default function HomePage() {
   return (
-    <div className="space-y-12 sm:space-y-16">
-      {/* 1. 히어로 섹션 (환영 및 한 줄 소개) */}
-      <section className="text-center pt-4 sm:pt-8 pb-6 sm:pb-10 space-y-4">
+    <div className="space-y-16 sm:space-y-24">
+      {/* 1. 히어로 섹션 (첫 화면을 넉넉하고 편안하게 채우는 환영 영역) */}
+      <section className="text-center pt-8 sm:pt-16 pb-12 sm:pb-20 space-y-6 min-h-[65vh] flex flex-col justify-center items-center">
         {/* 인사말 배지 */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FCEEE6] border border-[#F6C5B2] text-[#D4592E] text-sm sm:text-base font-semibold shadow-2xs">
           <span>🌿</span>
@@ -12,82 +13,52 @@ export default function HomePage() {
         </div>
 
         {/* 학교명 */}
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#2C2623] tracking-tight">
+        <h1 className="text-4xl sm:text-6xl font-extrabold text-[#2C2623] tracking-tight">
           샬롬자유학교
         </h1>
 
         {/* 한 줄 소개 */}
-        <p className="text-lg sm:text-2xl font-medium text-[#5A4B43] max-w-2xl mx-auto leading-relaxed pt-1">
+        <p className="text-xl sm:text-2xl font-medium text-[#5A4B43] max-w-2xl mx-auto leading-relaxed pt-1">
           &ldquo;하나님의 형상을 회복하고 삶의 힘을 기르는 교육&rdquo;
         </p>
 
         {/* 안내 문구 (입학 희망자 및 학부모를 위한 따뜻한 환영) */}
-        <p className="text-sm sm:text-base text-[#7D7063] max-w-xl mx-auto pt-2">
+        <p className="text-sm sm:text-base text-[#7D7063] max-w-xl mx-auto leading-relaxed pt-2">
           샬롬자유학교에 관심을 가져주신 모든 분들을 진심으로 환영합니다.
           <br className="hidden sm:inline" />
           아이들이 스스로 선택하고 책임지며 삶의 주인이 되는 배움의 터전입니다.
         </p>
 
         {/* 바로가기 버튼 그룹 */}
-        <div className="flex flex-wrap justify-center gap-3 pt-4">
+        <div className="flex flex-wrap justify-center gap-3 pt-6">
           <Link
             href="/school-life"
-            className="px-6 py-3 rounded-2xl bg-[#E07048] text-white font-semibold shadow-xs hover:bg-[#CF5E36] transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="px-6 py-3.5 rounded-2xl bg-[#E07048] text-white font-semibold shadow-xs hover:bg-[#CF5E36] transition-all hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base"
           >
             학교생활 둘러보기 🎒
           </Link>
           <Link
             href="/guestbook"
-            className="px-6 py-3 rounded-2xl bg-[#FFFFFF] text-[#4A3E38] border border-[#E8DDD1] font-semibold shadow-xs hover:bg-[#F3EDE2] transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="px-6 py-3.5 rounded-2xl bg-[#FFFFFF] text-[#4A3E38] border border-[#E8DDD1] font-semibold shadow-xs hover:bg-[#F3EDE2] transition-all hover:scale-[1.02] active:scale-[0.98] text-sm sm:text-base"
           >
             응원 방명록 남기기 💌
           </Link>
         </div>
-      </section>
 
-      {/* 2. 핵심 가치 섹션 */}
-      <section className="space-y-6">
-        <div className="text-center space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#2C2623]">
-            우리 학교의 세 가지 핵심 가치
-          </h2>
-          <p className="text-sm sm:text-base text-[#7D7063]">
-            샬롬자유학교가 가장 소중하게 지켜가는 배움의 중심입니다.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {/* 가치 1: 자유의 맛 */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#EFE7DE] shadow-xs hover:shadow-md transition-shadow flex flex-col items-start space-y-3">
-            <span className="text-4xl p-3 bg-[#FDF0E9] rounded-2xl">🌱</span>
-            <h3 className="text-xl font-bold text-[#2C2623]">자유의 맛</h3>
-            <p className="text-sm sm:text-base text-[#5A4B43] leading-relaxed">
-              선택하고 책임지는 연습
-            </p>
-          </div>
-
-          {/* 가치 2: 사랑의 멋 */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#EFE7DE] shadow-xs hover:shadow-md transition-shadow flex flex-col items-start space-y-3">
-            <span className="text-4xl p-3 bg-[#FDF0E9] rounded-2xl">🧡</span>
-            <h3 className="text-xl font-bold text-[#2C2623]">사랑의 멋</h3>
-            <p className="text-sm sm:text-base text-[#5A4B43] leading-relaxed">
-              하나님, 나와 이웃, 자연 사랑
-            </p>
-          </div>
-
-          {/* 가치 3: 대안의 삶 */}
-          <div className="bg-white rounded-3xl p-6 sm:p-7 border border-[#EFE7DE] shadow-xs hover:shadow-md transition-shadow flex flex-col items-start space-y-3">
-            <span className="text-4xl p-3 bg-[#FDF0E9] rounded-2xl">👣</span>
-            <h3 className="text-xl font-bold text-[#2C2623]">대안의 삶</h3>
-            <p className="text-sm sm:text-base text-[#5A4B43] leading-relaxed">
-              앎과 삶의 일치
-            </p>
-          </div>
+        {/* 스크롤 유도 힌트 (스크롤을 2~3번 내리면 교육 체계가 나타남을 부드럽게 안내) */}
+        <div className="pt-10 flex flex-col items-center gap-1.5 text-xs text-[#A49486] animate-pulse">
+          <span>아래로 스크롤하여 교육 체계 살펴보기</span>
+          <span>↓</span>
         </div>
       </section>
 
-      {/* 3. 1년 흐름 섹션 */}
-      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EFE7DE] shadow-xs space-y-8">
+      {/* 2. 교육 체계 오비탈 다이어그램 섹션 (스크롤을 내리면 슬슬 보이기 시작하는 위치) */}
+      <section className="pt-6 sm:pt-10 scroll-mt-20">
+        <CurriculumDiagram />
+      </section>
+
+      {/* 3. 1년의 배움 흐름 섹션 */}
+      <section className="bg-white rounded-3xl p-6 sm:p-10 border border-[#EFE7DE] shadow-xs space-y-8 max-w-3xl mx-auto">
         <div className="text-center space-y-2">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#2C2623]">
             1년의 배움 흐름
