@@ -94,22 +94,22 @@ export default function GuestbookPage() {
     <div className="space-y-10 sm:space-y-12">
       {/* 헤더 섹션 */}
       <section className="text-center space-y-3 pt-2 sm:pt-4">
-        <div className="inline-block px-3 py-1 bg-[#EBF0EB] text-[#384E38] text-xs font-semibold uppercase tracking-wider border border-[#D5DED5]">
+        <div className="inline-block px-3 py-1 bg-[#EBF2EB] text-[#4A6B4A] text-xs font-semibold uppercase tracking-wider border border-[#D3E0D3]">
           Guestbook
         </div>
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#1E261E] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#1D261D] tracking-tight">
           응원 방명록
         </h1>
-        <p className="text-base sm:text-lg text-[#4E5C4E] max-w-xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-[#465E46] max-w-xl mx-auto leading-relaxed">
           샬롬자유학교의 아이들과 선생님, 학교를 향한 따뜻한 응원의 한마디를 남겨주세요.
         </p>
       </section>
 
-      {/* 방명록 작성 폼 (각진 사각 박스) */}
-      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-8 border border-[#D5DED5]">
+      {/* 방명록 작성 폼 */}
+      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-8 border border-[#D3E0D3]">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="pb-3 border-b border-[#D5DED5]">
-            <h2 className="text-base font-bold text-[#1E261E]">
+          <div className="pb-3 border-b border-[#D3E0D3]">
+            <h2 className="text-base font-bold text-[#1D261D]">
               응원 글 남기기
             </h2>
           </div>
@@ -120,11 +120,11 @@ export default function GuestbookPage() {
             </div>
           )}
 
-          {/* 닉네임 입력 (각진 인풋) */}
+          {/* 닉네임 입력 */}
           <div className="space-y-1.5">
             <label
               htmlFor="nickname"
-              className="block text-xs font-bold text-[#1E261E] uppercase tracking-wider"
+              className="block text-xs font-bold text-[#1D261D] uppercase tracking-wider"
             >
               닉네임 (최대 20자)
             </label>
@@ -136,15 +136,15 @@ export default function GuestbookPage() {
               placeholder="예: 샬자 친구, 응원하는 이웃"
               maxLength={20}
               required
-              className="w-full px-4 py-2.5 border border-[#D5DED5] bg-[#F7F9F7] text-[#1E261E] placeholder-[#768476] focus:outline-hidden focus:border-[#384E38] focus:bg-white text-sm sm:text-base transition-colors"
+              className="w-full px-4 py-2.5 border border-[#D3E0D3] bg-[#F9FAF9] text-[#1D261D] placeholder-[#6F826F] focus:outline-hidden focus:border-[#4A6B4A] focus:bg-white text-sm sm:text-base transition-colors"
             />
           </div>
 
-          {/* 응원 글 입력 (각진 텍스트에어리어) */}
+          {/* 응원 글 입력 */}
           <div className="space-y-1.5">
             <label
               htmlFor="message"
-              className="block text-xs font-bold text-[#1E261E] uppercase tracking-wider"
+              className="block text-xs font-bold text-[#1D261D] uppercase tracking-wider"
             >
               응원 글 (최대 200자)
             </label>
@@ -156,18 +156,18 @@ export default function GuestbookPage() {
               placeholder="샬롬자유학교를 향한 따뜻한 응원의 말을 적어주세요."
               maxLength={200}
               required
-              className="w-full px-4 py-2.5 border border-[#D5DED5] bg-[#F7F9F7] text-[#1E261E] placeholder-[#768476] focus:outline-hidden focus:border-[#384E38] focus:bg-white text-sm sm:text-base transition-colors resize-none"
+              className="w-full px-4 py-2.5 border border-[#D3E0D3] bg-[#F9FAF9] text-[#1D261D] placeholder-[#6F826F] focus:outline-hidden focus:border-[#4A6B4A] focus:bg-white text-sm sm:text-base transition-colors resize-none"
             />
-            <div className="text-right text-xs text-[#768476]">
+            <div className="text-right text-xs text-[#6F826F]">
               {message.length} / 200자
             </div>
           </div>
 
-          {/* 등록 버튼 (각진 사각 버튼) */}
+          {/* 등록 버튼 */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 px-6 bg-[#384E38] text-white font-semibold hover:bg-[#2D3F2D] transition-colors border border-[#384E38] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            className="w-full py-3 px-6 bg-[#4A6B4A] text-white font-semibold hover:bg-[#3B583B] transition-colors border border-[#4A6B4A] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
             {isSubmitting ? "등록 중..." : "응원 글 남기기"}
           </button>
@@ -176,28 +176,28 @@ export default function GuestbookPage() {
 
       {/* 방명록 목록 섹션 */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-[#D5DED5]">
-          <h2 className="text-lg font-bold text-[#1E261E] flex items-center gap-2">
+        <div className="flex items-center justify-between pb-2 border-b border-[#D3E0D3]">
+          <h2 className="text-lg font-bold text-[#1D261D] flex items-center gap-2">
             <span>함께 나눈 응원들</span>
-            <span className="text-xs font-semibold px-2 py-0.5 bg-[#EBF0EB] text-[#384E38] border border-[#D5DED5]">
+            <span className="text-xs font-semibold px-2 py-0.5 bg-[#EBF2EB] text-[#4A6B4A] border border-[#D3E0D3]">
               {entries.length}개
             </span>
           </h2>
           <button
             onClick={fetchEntries}
             type="button"
-            className="text-xs text-[#4E5C4E] hover:text-[#1E261E] underline transition-colors"
+            className="text-xs text-[#465E46] hover:text-[#1D261D] underline transition-colors"
           >
             새로고침
           </button>
         </div>
 
         {isLoading ? (
-          <div className="py-12 text-center text-sm text-[#768476]">
+          <div className="py-12 text-center text-sm text-[#6F826F]">
             방명록을 불러오고 있습니다...
           </div>
         ) : entries.length === 0 ? (
-          <div className="py-12 text-center text-sm text-[#768476] bg-white border border-[#D5DED5]">
+          <div className="py-12 text-center text-sm text-[#6F826F] bg-white border border-[#D3E0D3]">
             첫 번째 응원의 한마디를 남겨주세요.
           </div>
         ) : (
@@ -205,13 +205,13 @@ export default function GuestbookPage() {
             {entries.map((entry) => (
               <div
                 key={entry.id}
-                className="bg-white p-5 border border-[#D5DED5] hover:border-[#384E38] transition-colors flex flex-col justify-between space-y-4"
+                className="bg-white p-5 border border-[#D3E0D3] hover:border-[#4A6B4A] transition-colors flex flex-col justify-between space-y-4"
               >
-                <p className="text-sm sm:text-base text-[#1E261E] leading-relaxed whitespace-pre-line">
+                <p className="text-sm sm:text-base text-[#1D261D] leading-relaxed whitespace-pre-line">
                   {entry.message}
                 </p>
-                <div className="pt-3 border-t border-[#D5DED5] flex items-center justify-between text-xs text-[#768476]">
-                  <span className="font-semibold text-[#384E38]">
+                <div className="pt-3 border-t border-[#D3E0D3] flex items-center justify-between text-xs text-[#6F826F]">
+                  <span className="font-semibold text-[#4A6B4A]">
                     {entry.nickname}
                   </span>
                   <span>{entry.createdAt}</span>
