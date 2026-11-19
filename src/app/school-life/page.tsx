@@ -39,7 +39,7 @@ export default function SchoolLifePage() {
     <div className="space-y-10 sm:space-y-12">
       {/* 헤더 섹션 */}
       <section className="text-center space-y-3 pt-2 sm:pt-4">
-        <div className="inline-block px-3 py-1 bg-[#EBF2EB] text-[#4A6B4A] text-xs font-semibold uppercase tracking-wider border border-[#D3E0D3]">
+        <div className="inline-block px-3 py-1 bg-[#EBF3EB] text-[#5C8A5C] text-xs font-semibold uppercase tracking-wider border border-[#CCE0CC]">
           School Life
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#1D261D] tracking-tight">
@@ -55,12 +55,12 @@ export default function SchoolLifePage() {
         {activities.map((activity, index) => (
           <div
             key={activity.name}
-            className={`bg-white p-6 sm:p-7 border border-[#D3E0D3] flex flex-col justify-between space-y-5 hover:border-[#4A6B4A] transition-colors ${
+            className={`bg-white p-6 sm:p-7 border border-[#CCE0CC] flex flex-col justify-between space-y-5 hover:border-[#5C8A5C] transition-colors ${
               index === 4 ? "md:col-span-2 lg:col-span-1" : ""
             }`}
           >
             <div className="space-y-3">
-              <span className="font-mono text-xs font-bold text-[#4A6B4A] tracking-widest block">
+              <span className="font-mono text-xs font-bold text-[#5C8A5C] tracking-widest block">
                 ACTIVITY {activity.number}
               </span>
               <h2 className="text-xl font-bold text-[#1D261D]">
@@ -71,16 +71,16 @@ export default function SchoolLifePage() {
               </p>
             </div>
 
-            <div className="pt-3 border-t border-[#D3E0D3] flex items-center justify-between text-xs text-[#6F826F]">
+            <div className="pt-3 border-t border-[#CCE0CC] flex items-center justify-between text-xs text-[#6B856B]">
               <span>샬롬자유학교</span>
-              <span className="text-[#4A6B4A] font-medium">활동 안내</span>
+              <span className="text-[#5C8A5C] font-medium">활동 안내</span>
             </div>
           </div>
         ))}
       </section>
 
       {/* 하단 이동 배너 */}
-      <section className="bg-[#EBF2EB] p-6 sm:p-8 border border-[#D3E0D3] text-center space-y-3">
+      <section className="bg-[#EBF3EB] p-6 sm:p-8 border border-[#CCE0CC] text-center space-y-3">
         <h3 className="text-lg sm:text-xl font-bold text-[#1D261D]">
           샬롬자유학교의 따뜻한 여정을 함께 응원해 주세요
         </h3>
@@ -90,7 +90,7 @@ export default function SchoolLifePage() {
         <div className="pt-2">
           <Link
             href="/guestbook"
-            className="inline-block px-6 py-2.5 bg-[#4A6B4A] text-white font-semibold text-sm hover:bg-[#3B583B] transition-colors border border-[#4A6B4A]"
+            className="inline-block px-6 py-2.5 bg-[#5C8A5C] text-white font-semibold text-sm hover:bg-[#4D754D] transition-colors border border-[#5C8A5C]"
           >
             응원 방명록 남기러 가기 →
           </Link>

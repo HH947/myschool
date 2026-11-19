@@ -7,7 +7,7 @@ export default function HomePage() {
       {/* 1. 히어로 섹션 */}
       <section className="text-center pt-8 sm:pt-16 pb-12 sm:pb-20 space-y-6 min-h-[65vh] flex flex-col justify-center items-center">
         {/* 인사말 배지 */}
-        <div className="inline-block px-4 py-1.5 bg-[#EBF2EB] border border-[#D3E0D3] text-[#4A6B4A] text-xs sm:text-sm font-semibold tracking-wide">
+        <div className="inline-block px-4 py-1.5 bg-[#EBF3EB] border border-[#CCE0CC] text-[#5C8A5C] text-xs sm:text-sm font-semibold tracking-wide">
           이왕이면 샬자
         </div>
 
@@ -17,7 +17,7 @@ export default function HomePage() {
         </h1>
 
         {/* 한 줄 소개 */}
-        <p className="text-xl sm:text-2xl font-medium text-[#4A6B4A] max-w-2xl mx-auto leading-relaxed pt-1">
+        <p className="text-xl sm:text-2xl font-medium text-[#527E52] max-w-2xl mx-auto leading-relaxed pt-1">
           &ldquo;하나님의 형상을 회복하고 삶의 힘을 기르는 교육&rdquo;
         </p>
 
@@ -32,20 +32,20 @@ export default function HomePage() {
         <div className="flex flex-wrap justify-center gap-3 pt-6">
           <Link
             href="/school-life"
-            className="px-6 py-3.5 bg-[#4A6B4A] text-white font-semibold hover:bg-[#3B583B] transition-colors text-sm sm:text-base border border-[#4A6B4A]"
+            className="px-6 py-3.5 bg-[#5C8A5C] text-white font-semibold hover:bg-[#4D754D] transition-colors text-sm sm:text-base border border-[#5C8A5C]"
           >
             학교생활 둘러보기 →
           </Link>
           <Link
             href="/guestbook"
-            className="px-6 py-3.5 bg-white text-[#1D261D] border border-[#D3E0D3] font-semibold hover:bg-[#EBF2EB] hover:border-[#4A6B4A] transition-colors text-sm sm:text-base"
+            className="px-6 py-3.5 bg-white text-[#1D261D] border border-[#CCE0CC] font-semibold hover:bg-[#EBF3EB] hover:border-[#5C8A5C] transition-colors text-sm sm:text-base"
           >
             응원 방명록 남기기
           </Link>
         </div>
 
         {/* 스크롤 유도 힌트 */}
-        <div className="pt-10 flex flex-col items-center gap-1.5 text-xs text-[#6F826F]">
+        <div className="pt-10 flex flex-col items-center gap-1.5 text-xs text-[#6B856B]">
           <span>스크롤하여 교육 체계 살펴보기</span>
           <span>↓</span>
         </div>
@@ -57,9 +57,9 @@ export default function HomePage() {
       </section>
 
       {/* 3. 1년의 배움 흐름 섹션 */}
-      <section className="bg-white p-6 sm:p-10 border border-[#D3E0D3] space-y-8 max-w-3xl mx-auto">
+      <section className="bg-white p-6 sm:p-10 border border-[#CCE0CC] space-y-8 max-w-3xl mx-auto">
         <div className="text-center space-y-2">
-          <span className="text-xs font-semibold tracking-wider text-[#6F826F] uppercase">
+          <span className="text-xs font-semibold tracking-wider text-[#6B856B] uppercase">
             Curriculum Flow
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1D261D]">
@@ -72,8 +72,8 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* 1학기: 기초 */}
-          <div className="p-6 bg-[#F9FAF9] border border-[#D3E0D3] text-center space-y-3 flex flex-col items-center">
-            <span className="text-xs font-bold text-[#4A6B4A] px-2.5 py-1 bg-[#EBF2EB] border border-[#D3E0D3]">
+          <div className="p-6 bg-[#FAFCFA] border border-[#CCE0CC] text-center space-y-3 flex flex-col items-center">
+            <span className="text-xs font-bold text-[#5C8A5C] px-2.5 py-1 bg-[#EBF3EB] border border-[#CCE0CC]">
               STEP 01
             </span>
             <h3 className="text-lg font-bold text-[#1D261D]">1학기: 기초</h3>
@@ -83,8 +83,8 @@ export default function HomePage() {
           </div>
 
           {/* 2학기: 방향 */}
-          <div className="p-6 bg-[#F9FAF9] border border-[#D3E0D3] text-center space-y-3 flex flex-col items-center">
-            <span className="text-xs font-bold text-[#4A6B4A] px-2.5 py-1 bg-[#EBF2EB] border border-[#D3E0D3]">
+          <div className="p-6 bg-[#FAFCFA] border border-[#CCE0CC] text-center space-y-3 flex flex-col items-center">
+            <span className="text-xs font-bold text-[#5C8A5C] px-2.5 py-1 bg-[#EBF3EB] border border-[#CCE0CC]">
               STEP 02
             </span>
             <h3 className="text-lg font-bold text-[#1D261D]">2학기: 방향</h3>
@@ -94,8 +94,8 @@ export default function HomePage() {
           </div>
 
           {/* 3학기: 대안 */}
-          <div className="p-6 bg-[#F9FAF9] border border-[#D3E0D3] text-center space-y-3 flex flex-col items-center">
-            <span className="text-xs font-bold text-[#4A6B4A] px-2.5 py-1 bg-[#EBF2EB] border border-[#D3E0D3]">
+          <div className="p-6 bg-[#FAFCFA] border border-[#CCE0CC] text-center space-y-3 flex flex-col items-center">
+            <span className="text-xs font-bold text-[#5C8A5C] px-2.5 py-1 bg-[#EBF3EB] border border-[#CCE0CC]">
               STEP 03
             </span>
             <h3 className="text-lg font-bold text-[#1D261D]">3학기: 대안</h3>

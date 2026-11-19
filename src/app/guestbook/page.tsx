@@ -94,7 +94,7 @@ export default function GuestbookPage() {
     <div className="space-y-10 sm:space-y-12">
       {/* 헤더 섹션 */}
       <section className="text-center space-y-3 pt-2 sm:pt-4">
-        <div className="inline-block px-3 py-1 bg-[#EBF2EB] text-[#4A6B4A] text-xs font-semibold uppercase tracking-wider border border-[#D3E0D3]">
+        <div className="inline-block px-3 py-1 bg-[#EBF3EB] text-[#5C8A5C] text-xs font-semibold uppercase tracking-wider border border-[#CCE0CC]">
           Guestbook
         </div>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#1D261D] tracking-tight">
@@ -106,9 +106,9 @@ export default function GuestbookPage() {
       </section>
 
       {/* 방명록 작성 폼 */}
-      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-8 border border-[#D3E0D3]">
+      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-8 border border-[#CCE0CC]">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="pb-3 border-b border-[#D3E0D3]">
+          <div className="pb-3 border-b border-[#CCE0CC]">
             <h2 className="text-base font-bold text-[#1D261D]">
               응원 글 남기기
             </h2>
@@ -136,7 +136,7 @@ export default function GuestbookPage() {
               placeholder="예: 샬자 친구, 응원하는 이웃"
               maxLength={20}
               required
-              className="w-full px-4 py-2.5 border border-[#D3E0D3] bg-[#F9FAF9] text-[#1D261D] placeholder-[#6F826F] focus:outline-hidden focus:border-[#4A6B4A] focus:bg-white text-sm sm:text-base transition-colors"
+              className="w-full px-4 py-2.5 border border-[#CCE0CC] bg-[#FAFCFA] text-[#1D261D] placeholder-[#6B856B] focus:outline-hidden focus:border-[#5C8A5C] focus:bg-white text-sm sm:text-base transition-colors"
             />
           </div>
 
@@ -156,9 +156,9 @@ export default function GuestbookPage() {
               placeholder="샬롬자유학교를 향한 따뜻한 응원의 말을 적어주세요."
               maxLength={200}
               required
-              className="w-full px-4 py-2.5 border border-[#D3E0D3] bg-[#F9FAF9] text-[#1D261D] placeholder-[#6F826F] focus:outline-hidden focus:border-[#4A6B4A] focus:bg-white text-sm sm:text-base transition-colors resize-none"
+              className="w-full px-4 py-2.5 border border-[#CCE0CC] bg-[#FAFCFA] text-[#1D261D] placeholder-[#6B856B] focus:outline-hidden focus:border-[#5C8A5C] focus:bg-white text-sm sm:text-base transition-colors resize-none"
             />
-            <div className="text-right text-xs text-[#6F826F]">
+            <div className="text-right text-xs text-[#6B856B]">
               {message.length} / 200자
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function GuestbookPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 px-6 bg-[#4A6B4A] text-white font-semibold hover:bg-[#3B583B] transition-colors border border-[#4A6B4A] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            className="w-full py-3 px-6 bg-[#5C8A5C] text-white font-semibold hover:bg-[#4D754D] transition-colors border border-[#5C8A5C] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
             {isSubmitting ? "등록 중..." : "응원 글 남기기"}
           </button>
@@ -176,10 +176,10 @@ export default function GuestbookPage() {
 
       {/* 방명록 목록 섹션 */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between pb-2 border-b border-[#D3E0D3]">
+        <div className="flex items-center justify-between pb-2 border-b border-[#CCE0CC]">
           <h2 className="text-lg font-bold text-[#1D261D] flex items-center gap-2">
             <span>함께 나눈 응원들</span>
-            <span className="text-xs font-semibold px-2 py-0.5 bg-[#EBF2EB] text-[#4A6B4A] border border-[#D3E0D3]">
+            <span className="text-xs font-semibold px-2 py-0.5 bg-[#EBF3EB] text-[#5C8A5C] border border-[#CCE0CC]">
               {entries.length}개
             </span>
           </h2>
@@ -193,11 +193,11 @@ export default function GuestbookPage() {
         </div>
 
         {isLoading ? (
-          <div className="py-12 text-center text-sm text-[#6F826F]">
+          <div className="py-12 text-center text-sm text-[#6B856B]">
             방명록을 불러오고 있습니다...
           </div>
         ) : entries.length === 0 ? (
-          <div className="py-12 text-center text-sm text-[#6F826F] bg-white border border-[#D3E0D3]">
+          <div className="py-12 text-center text-sm text-[#6B856B] bg-white border border-[#CCE0CC]">
             첫 번째 응원의 한마디를 남겨주세요.
           </div>
         ) : (
@@ -205,13 +205,13 @@ export default function GuestbookPage() {
             {entries.map((entry) => (
               <div
                 key={entry.id}
-                className="bg-white p-5 border border-[#D3E0D3] hover:border-[#4A6B4A] transition-colors flex flex-col justify-between space-y-4"
+                className="bg-white p-5 border border-[#CCE0CC] hover:border-[#5C8A5C] transition-colors flex flex-col justify-between space-y-4"
               >
                 <p className="text-sm sm:text-base text-[#1D261D] leading-relaxed whitespace-pre-line">
                   {entry.message}
                 </p>
-                <div className="pt-3 border-t border-[#D3E0D3] flex items-center justify-between text-xs text-[#6F826F]">
-                  <span className="font-semibold text-[#4A6B4A]">
+                <div className="pt-3 border-t border-[#CCE0CC] flex items-center justify-between text-xs text-[#6B856B]">
+                  <span className="font-semibold text-[#5C8A5C]">
                     {entry.nickname}
                   </span>
                   <span>{entry.createdAt}</span>
