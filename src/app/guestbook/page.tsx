@@ -94,39 +94,37 @@ export default function GuestbookPage() {
     <div className="space-y-10 sm:space-y-12">
       {/* 헤더 섹션 */}
       <section className="text-center space-y-3 pt-2 sm:pt-4">
-        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FCEEE6] text-[#D4592E] text-xs sm:text-sm font-semibold">
-          <span>💌</span>
-          <span>따뜻한 나눔의 공간</span>
+        <div className="inline-block px-3 py-1 bg-[#EBF0EB] text-[#384E38] text-xs font-semibold uppercase tracking-wider border border-[#D5DED5]">
+          Guestbook
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#2C2623] tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#1E261E] tracking-tight">
           응원 방명록
         </h1>
-        <p className="text-base sm:text-lg text-[#5A4B43] max-w-xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg text-[#4E5C4E] max-w-xl mx-auto leading-relaxed">
           샬롬자유학교의 아이들과 선생님, 학교를 향한 따뜻한 응원의 한마디를 남겨주세요.
         </p>
       </section>
 
-      {/* 방명록 작성 폼 */}
-      <section className="max-w-2xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-[#EFE7DE] shadow-xs">
+      {/* 방명록 작성 폼 (각진 사각 박스) */}
+      <section className="max-w-2xl mx-auto bg-white p-6 sm:p-8 border border-[#D5DED5]">
         <form onSubmit={handleSubmit} className="space-y-5">
-          <div className="flex items-center gap-2 pb-2 border-b border-[#F5EEE6]">
-            <span className="text-2xl">✍️</span>
-            <h2 className="text-lg font-bold text-[#2C2623]">
+          <div className="pb-3 border-b border-[#D5DED5]">
+            <h2 className="text-base font-bold text-[#1E261E]">
               응원 글 남기기
             </h2>
           </div>
 
           {errorMessage && (
-            <div className="p-3.5 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+            <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm">
               {errorMessage}
             </div>
           )}
 
-          {/* 닉네임 입력 */}
+          {/* 닉네임 입력 (각진 인풋) */}
           <div className="space-y-1.5">
             <label
               htmlFor="nickname"
-              className="block text-sm font-semibold text-[#4A3E38]"
+              className="block text-xs font-bold text-[#1E261E] uppercase tracking-wider"
             >
               닉네임 (최대 20자)
             </label>
@@ -138,15 +136,15 @@ export default function GuestbookPage() {
               placeholder="예: 샬자 친구, 응원하는 이웃"
               maxLength={20}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-[#E8DDD1] bg-[#FAF7F2] text-[#2C2623] placeholder-[#A49486] focus:outline-hidden focus:ring-2 focus:ring-[#E07048] focus:bg-white text-sm sm:text-base transition-all"
+              className="w-full px-4 py-2.5 border border-[#D5DED5] bg-[#F7F9F7] text-[#1E261E] placeholder-[#768476] focus:outline-hidden focus:border-[#384E38] focus:bg-white text-sm sm:text-base transition-colors"
             />
           </div>
 
-          {/* 응원 글 입력 */}
+          {/* 응원 글 입력 (각진 텍스트에어리어) */}
           <div className="space-y-1.5">
             <label
               htmlFor="message"
-              className="block text-sm font-semibold text-[#4A3E38]"
+              className="block text-xs font-bold text-[#1E261E] uppercase tracking-wider"
             >
               응원 글 (최대 200자)
             </label>
@@ -155,67 +153,66 @@ export default function GuestbookPage() {
               rows={3}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="샬롬자유학교를 향한 따뜻한 응원의 말을 적어주세요 :)"
+              placeholder="샬롬자유학교를 향한 따뜻한 응원의 말을 적어주세요."
               maxLength={200}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-[#E8DDD1] bg-[#FAF7F2] text-[#2C2623] placeholder-[#A49486] focus:outline-hidden focus:ring-2 focus:ring-[#E07048] focus:bg-white text-sm sm:text-base transition-all resize-none"
+              className="w-full px-4 py-2.5 border border-[#D5DED5] bg-[#F7F9F7] text-[#1E261E] placeholder-[#768476] focus:outline-hidden focus:border-[#384E38] focus:bg-white text-sm sm:text-base transition-colors resize-none"
             />
-            <div className="text-right text-xs text-[#8A7968]">
+            <div className="text-right text-xs text-[#768476]">
               {message.length} / 200자
             </div>
           </div>
 
-          {/* 등록 버튼 */}
+          {/* 등록 버튼 (각진 사각 버튼) */}
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 px-6 rounded-2xl bg-[#E07048] text-white font-semibold shadow-xs hover:bg-[#CF5E36] transition-all hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            className="w-full py-3 px-6 bg-[#384E38] text-white font-semibold hover:bg-[#2D3F2D] transition-colors border border-[#384E38] disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
           >
-            {isSubmitting ? "남기는 중..." : "응원 글 남기기 💌"}
+            {isSubmitting ? "등록 중..." : "응원 글 남기기"}
           </button>
         </form>
       </section>
 
       {/* 방명록 목록 섹션 */}
       <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-[#2C2623] flex items-center gap-2">
+        <div className="flex items-center justify-between pb-2 border-b border-[#D5DED5]">
+          <h2 className="text-lg font-bold text-[#1E261E] flex items-center gap-2">
             <span>함께 나눈 응원들</span>
-            <span className="text-sm font-semibold px-2.5 py-0.5 rounded-full bg-[#FCEEE6] text-[#D4592E]">
+            <span className="text-xs font-semibold px-2 py-0.5 bg-[#EBF0EB] text-[#384E38] border border-[#D5DED5]">
               {entries.length}개
             </span>
           </h2>
           <button
             onClick={fetchEntries}
             type="button"
-            className="text-xs text-[#7D7063] hover:text-[#E07048] underline transition-colors"
+            className="text-xs text-[#4E5C4E] hover:text-[#1E261E] underline transition-colors"
           >
-            새로고침 🔄
+            새로고침
           </button>
         </div>
 
         {isLoading ? (
-          <div className="py-12 text-center text-sm text-[#8A7968]">
-            방명록을 불러오고 있습니다... 🌿
+          <div className="py-12 text-center text-sm text-[#768476]">
+            방명록을 불러오고 있습니다...
           </div>
         ) : entries.length === 0 ? (
-          <div className="py-12 text-center text-sm text-[#8A7968] bg-white rounded-3xl border border-[#EFE7DE]">
-            첫 번째 응원의 한마디를 남겨주세요! ✨
+          <div className="py-12 text-center text-sm text-[#768476] bg-white border border-[#D5DED5]">
+            첫 번째 응원의 한마디를 남겨주세요.
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {entries.map((entry) => (
               <div
                 key={entry.id}
-                className="bg-white rounded-2xl p-5 border border-[#EFE7DE] shadow-2xs hover:shadow-xs transition-shadow flex flex-col justify-between space-y-3"
+                className="bg-white p-5 border border-[#D5DED5] hover:border-[#384E38] transition-colors flex flex-col justify-between space-y-4"
               >
-                <p className="text-sm sm:text-base text-[#3C322D] leading-relaxed whitespace-pre-wrap">
+                <p className="text-sm sm:text-base text-[#1E261E] leading-relaxed whitespace-pre-line">
                   {entry.message}
                 </p>
-                <div className="pt-2 border-t border-[#F8F4EE] flex items-center justify-between text-xs text-[#8A7968]">
-                  <span className="font-semibold text-[#D4592E] flex items-center gap-1">
-                    <span>🌱</span>
-                    <span>{entry.nickname}</span>
+                <div className="pt-3 border-t border-[#D5DED5] flex items-center justify-between text-xs text-[#768476]">
+                  <span className="font-semibold text-[#384E38]">
+                    {entry.nickname}
                   </span>
                   <span>{entry.createdAt}</span>
                 </div>
